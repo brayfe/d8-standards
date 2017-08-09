@@ -1,4 +1,4 @@
-> The following page provides a highly opinionated prescription for building a Drupal 8 distribution. It is designed to be a straw man to be disputed, contradicted, ridiculed, and subsequently revised – in effect, a _reculer pour mieux sauter –_ which will eventually grow into a blueprint for an actual distribution design document.
+> The following page provides a highly opinionated prescription for building a Drupal 8 distribution. It is designed to be a straw man to be disputed, contradicted, ridiculed, and subsequently revised – in effect, a _[reculer pour mieux sauter](http://www.bartleby.com/81/14132.html)_ – which will eventually grow into a blueprint for an actual distribution design document.
 
 ## Composer
 
