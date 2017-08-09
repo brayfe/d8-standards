@@ -3,16 +3,16 @@
 ## Composer
 
 1.  The distribution repository should not include any built artifacts of Drupal core, contributed projects, or PHP libraries.
-2.  The distribution repository should contain a composer.json file in the root  of the repository that will compose explicitly identified versions of:
+2.  The distribution repository should contain a `composer.json` file in the root  of the repository that will compose explicitly identified versions of:
     1.  Drupal Core
     2.  All contributed projects
-        1.  All contrib patches should be managed in a /patches directory and applied via the "scripts" method during `composer install`
+        1.  All contrib patches should be managed in a `patches` subdirectory of the repository root and applied via the "scripts" method during `composer install`
     3.  All PHP libraries
-3.  Custom projects intrinsic to the functionality provided by the distribution must be directly included in the repository (e.g., `web/profiles/<install-profile-name/modules`), rather than via the composer.json. Examples include the installation profile, node content types, Paragraphs types used by those node content types, user roles, and text format settings.
+3.  Custom projects intrinsic to the functionality provided by the distribution must be directly included in the repository (e.g., `web/profiles/<install-profile-name>/modules`), rather than via the `composer.json`. Examples include the installation profile, node content types, Paragraphs types used by those node content types, user roles, and text format settings.
 4.  Custom projects not intrinsic to the functionality provided by the distribution may be included via VCS. Examples include custom text format filters, layout editing tools, self-contained display elements (e.g., Announcements), Drupal overrides, analytics solutions, and 404 handling.
-5.  The Drupal docroot must be located in /web
-6.  A customized settings.php file should be committed directly to the repository to overwrite the default settings.php provided.
-7.  The distribution must be distributable to developers as-is (for a Composer-based workflow) or as a separate, built application. Developers will be discouraged from using Composer for adding their own packages, but the technical implementation will not prevent this; they would need to manually maintain their own version of the repository root's composer.json file
+5.  The Drupal docroot must be located in a `web` subdirectory of the repository.
+6.  A customized `settings.php` file should be committed directly to the repository to overwrite the default `settings.php` provided.
+7.  The distribution must be distributable to developers as-is (for a Composer-based workflow) or as a separate, built application. Developers will be discouraged from using Composer for adding their own packages, but the technical implementation will not prevent this; they would need to manually maintain their own version of the repository root's `composer.json` file
 
 **Reasoning:**
 
@@ -20,18 +20,18 @@
 *   Using Composer for contributed module patching ensures that patches will be applied, or will fail during the build process, prompting the developer to revisit the patch before committing contributed module changes.
 *   Defining the explict version of core, contributed projects, and PHP libraries ensures that maintainers will have an idempotent built codebase when testing.
 *   Distribution-intrinsic custom functionality should be included in the repository (as opposed to separate git repositories) to avoid a situation where a single functional change requires pull requests on multiple repositories.
-*   Defining the .gitignore, circle.yml, pantheon.yml, and composer.json files as example files allows the individual developer to use Composer himself/herself, while adding minimal work for the distribution maintainers (i.e., scripted conversion of example files to real files, and saving those changes back to the example files).
+*   Defining the `.gitignore`, `circle.yml`, `pantheon.yml`, and `composer.json` files as example files allows the individual developer to use Composer himself/herself, while adding minimal work for the distribution maintainers (i.e., scripted conversion of example files to real files, and saving those changes back to the example files).
 
 ## Configuration Management
 
-1.  No configuration should ever be written to the /sites/default/config directory.
-2.  All configuration relating to custom projects (modules/themes) must be defined in the modules' own /config/install directory, and those modules should include a features.yml file that registers the configuration in Features.
+1.  No configuration should ever be written to the `sites/default/config` directory.
+2.  All configuration relating to custom projects (modules/themes) must be defined in the modules' own `config/install` directory, and those modules should include a `features.yml` file that registers the configuration in Features.
     1.  Updates to configuration provided by custom projects should be deployed by adding a database update hook that does a `features-revert` on specific features. Update hooks should never use `features-revert-all` to avoid reverting features that individual developers have added to their own code.
 3.  Configuration relating to general site defaults (site information) must be done in the installation profile via a method such as described here [https://drupal.stackexchange.com/questions/238189/setting-site-name-in-installation-profile](https://drupal.stackexchange.com/questions/238189/setting-site-name-in-installation-profile)
 
 **Reasoning:**
 
-*   Configuration Management, in the sense of what is generated via a config-export and stored in `sites/default/config`, is designed to be a complete representation in code of the site's live configuration. As such, it is a tool for individual sites, rather than for distributions.
+*   Configuration Management, in the sense of what is generated via a `config-export` and stored in `sites/default/config`, is designed to be a complete representation in code of the site's live configuration. As such, it is a tool for individual sites, rather than for distributions.
 
 ## Content
 
@@ -42,12 +42,12 @@
 
 **Reasoning:**
 
-*   The field_layout approach to content placement is (a) in Core, (b) adopted by Panels and Display Suite and (c) avoids the pitfalls of UTDK 7.x's dependence on manipulating regions at the page level.
+*   The `field_layout` approach to content placement is (a) in Core, (b) adopted by Panels and Display Suite and (c) avoids the pitfalls of UTDK 7.x's dependence on manipulating regions at the page level.
 *   The Paragraphs contributed modules is emerging as the _sine qua non_ for complex field combinations that work in conjunction with each other.
 
 ## Layout & Content Placement
 
-1.  The distribution must provide one or more tools for arranging content on pages using the core field_layout paradigm, which limits such arrangement and layout to the "content" region of the given page. Such tools may include Panels, Display Suite, and/or a custom layout solution designed to provide a "Panels Lite" user experience.
+1.  The distribution must provide one or more tools for arranging content on pages using the core `field_layout` paradigm, which limits such arrangement and layout to the "content" region of the given page. Such tools may include Panels, Display Suite, and/or a custom layout solution designed to provide a "Panels Lite" user experience.
 2.  Such tools must allow placement of both resuable and single-use content.
 3.  Such tools must be compatible with the Drupal core QuickEdit tool.
 4.  The layouts which such tools generate must be revisionable, just as the content they contain is revisionable.
@@ -73,7 +73,7 @@
 
 > This section is intended to be a concise, high-level distillation of the above. It could be presented to stakeholders as a smoke-test for buy-in.
 
-1.  The distribution shall be composed using Composer and distributed as a built application with a web/ docroot.
+1.  The distribution shall be composed using Composer and distributed as a built application with a `web` subdirectory docroot.
 2.  Updates to the distribution shall be applied by downloading the updated codebase and running database updates.
 3.  The individual developer/site shall be responsible for using Configuration Management in a manner s/he sees fit.
 4.  Reusable content shall be defined as Drupal blocks.
