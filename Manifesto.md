@@ -8,8 +8,18 @@
     2.  All contributed projects
         1.  All contrib patches should be managed in a `patches` subdirectory of the repository root and applied via the "scripts" method during `composer install`
     3.  All PHP libraries
-3.  Custom projects intrinsic to the functionality provided by the distribution must be directly included in the repository (e.g., `web/profiles/<install-profile-name>/modules`), rather than via the `composer.json`. Examples include the installation profile, node content types, Paragraphs types used by those node content types, user roles, and text format settings.
-4.  Custom projects not intrinsic to the functionality provided by the distribution may be included via VCS. Examples include custom text format filters, layout editing tools, self-contained display elements (e.g., Announcements), Drupal overrides, analytics solutions, and 404 handling.
+3. The "Distribution Kernel" -- meaning custom projects intrinsic to the functionality provided by the distribution -- must be directly included in the repository (e.g., `web/profiles/<install-profile-name>/modules`), rather than via the `composer.json`. Examples include the installation profile, node content types, Paragraphs types used by those node content types, user roles, and text format settings.
+4. "Custom standalone" projects not intrinsic to the functionality provided by the distribution must be included via VCS. Examples include custom text format filters, layout editing tools, self-contained display elements (e.g., Announcements), Drupal overrides, analytics solutions, and 404 handling.
+
+### Visualisation of 1 - 4
+| Component | Use Composer | Don't use Composer |
+| ------------- | ------------- | ------------- |
+| Core | X | |
+| Contrib | X | |
+| Libraries | X  | |
+| Distribution Kernel | | X |
+| Custom Standalone | X | |
+
 5.  The Drupal docroot must be located in a `web` subdirectory of the repository.
 6.  A customized `settings.php` file should be committed directly to the repository to overwrite the default `settings.php` provided.
 7.  The distribution must be distributable to developers as-is (for a Composer-based workflow) or as a separate, built application. Developers will be discouraged from using Composer for adding their own packages, but the technical implementation will not prevent this; they would need to manually maintain their own version of the repository root's `composer.json` file
@@ -19,7 +29,7 @@
 *   Using Composer for Drupal core and contributed modules reduces repository size and enforces the rule that core should not be hacked
 *   Using Composer for contributed module patching ensures that patches will be applied, or will fail during the build process, prompting the developer to revisit the patch before committing contributed module changes.
 *   Defining the explict version of core, contributed projects, and PHP libraries ensures that maintainers will have an idempotent built codebase when testing.
-*   Distribution-intrinsic custom functionality should be included in the repository (as opposed to separate git repositories) to avoid a situation where a single functional change requires pull requests on multiple repositories.
+*   Distribution-intrinsic custom functionality should be included in the repository (as opposed to separate git repositories) (A) to avoid a situation where a single functional change requires pull requests on multiple repositories and (B) because there is  no compelling advantage to keeping custom code that will singly be used in the distribution somewhere other than the distribution's repository.
 *   Defining the `.gitignore`, `circle.yml`, `pantheon.yml`, and `composer.json` files as example files allows the individual developer to use Composer himself/herself, while adding minimal work for the distribution maintainers (i.e., scripted conversion of example files to real files, and saving those changes back to the example files).
 
 ## Configuration Management
