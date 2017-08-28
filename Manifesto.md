@@ -94,7 +94,7 @@
 1.  Reusable content shall be defined as Drupal blocks.
 1.  Page-specific content shall be defined as Drupal fields; complex fields shall be defined as Paragraphs types.
 1.  A layout tool shall be included which will allow content builders to choose between multiple page layouts and assign both reusable content and page-specific content on a per-page basis.
-1.  A branded theme shall be provided that may be sub-themed.
+1.  A branded theme shall be provided that may be sub-themed, and can be used independently of the distribution.
 1.  This branded theme shall follow principles of atomic design, and shall be constructed from an application-agnostic styleguide.
 1.  Addition, configuration, and management of contributed modules shall be the responsibility of the individual developer, except for contributed modules that are dependencies to the distribution's custom functionality.
 1.  Issues, feature requests, and in-progress changes shall be directly accessible by individual developers via Enterprise Github.
