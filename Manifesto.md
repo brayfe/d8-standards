@@ -90,7 +90,7 @@
 
 1.  The distribution shall be composed using Composer and will assume the use of a `web` subdirectory docroot.
 1.  Updates to the distribution shall be applied by obtaining the updated codebase, running `composer update`, and running database updates.
-1.  The individual developer/site shall be responsible for using Configuration Management in a manner s/he sees fit.
+1.  The distribution shall not interact with Drupal's Configuration Management system. The individual developer/site shall be responsible for using Configuration Management in a manner s/he sees fit.
 1.  Reusable content shall be defined as Drupal blocks.
 1.  Page-specific content shall be defined as Drupal fields; complex fields shall be defined as Paragraphs types.
 1.  A layout tool shall be included which will allow content builders to choose between multiple page layouts and assign both reusable content and page-specific content on a per-page basis.
