@@ -48,9 +48,9 @@
 ## Content
 
 1.  Content elements that will only always ever have a discrete number of instances on the site must be defined as plugin blocks. Examples of this include the sitewide social links, footer links, and sitewide announcement.
-2.  Content elements that will never be displayed as a standalone page (read: it doesn't have a direct URL) must be defined as custom block types. Examples of this include Contact Info, Social Links, UT Newsreels, and Twitter Widgets.
-3.  Content elements that are primarily intended for display on a single page must be defined as fields. Examples include Hero Photo, Flex Content Area, and WYSIWYG fields.
-4.  Compound fields must be defined as [Paragraph](https://www.drupal.org/project/paragraphs) types, and added to content types as Paragraph entity references.
+1.  Content elements that will never be displayed as a standalone page (read: it doesn't have a direct URL) must be defined as custom block types. Examples of this include Contact Info, Social Links, UT Newsreels, and Twitter Widgets.
+1.  Content elements that are primarily intended for display on a single page must be defined as fields. Examples include Hero Photo, Flex Content Area, and WYSIWYG fields.
+1.  Compound fields must be defined as [Paragraph](https://www.drupal.org/project/paragraphs) types, and added to content types as Paragraph entity references.
 
 **Reasoning:**
 
@@ -59,11 +59,11 @@
 ## Layout & Content Placement
 
 1.  The distribution must provide one or more tools for arranging content on pages using the core `field_layout` paradigm, which limits such arrangement and layout to the "content" region of the given page. Such tools may include Panels, Display Suite, and/or a custom layout solution designed to provide a "Panels Lite" user experience.
-2.  Such tools must allow placement of both resuable and single-use content.
-3.  Such tools must be compatible with the Drupal core QuickEdit tool.
-4.  The layouts which such tools generate must be revisionable, just as the content they contain is revisionable.
-5.  Such tools must be compatible with moderated workflow.
-6.  Such tools must depend on core or other modules to supply layouts, and must provide a UI to switch between these externally-supplied layouts.
+1.  Such tools must allow placement of both resuable and single-use content.
+1.  Such tools must be compatible with the Drupal core QuickEdit tool.
+1.  The layouts which such tools generate must be revisionable, just as the content they contain is revisionable.
+1.  Such tools must be compatible with moderated workflow.
+1.  Such tools must depend on core or other modules to supply layouts, and must provide a UI to switch between these externally-supplied layouts.
 
 **Reasoning:**
 
@@ -72,9 +72,9 @@
 ## Custom Functionality
 
 1.  All custom functionality provided in the distribution must NOT rely on a custom theme for any of its baseline rendering. In other words, all custom functionality should be minimally usable with any Drupal theme.
-2.  All tests for custom functionality should be written without dependence on a given theme. Example: a Behat test for a Contact Info block should not check that the block header text is a color defined by a given theme; it should check that the html structure defined by the component's template implementation is present.
-3.  All tests for custom functionality should be written without dependence on a given installation profile. Example: a Behat test for a custom text format filter should not save a node of a content type that is defined by the installation profile, but rather should save a "basic page" or "article."
-4.  All tests for custom functionality should be written without dependence on other custom functionality. Example: a Behat test for the Qualtrics text format filter should not assume the presence of a Responsive Tables text format filter.
+1.  All tests for custom functionality should be written without dependence on a given theme. Example: a Behat test for a Contact Info block should not check that the block header text is a color defined by a given theme; it should check that the html structure defined by the component's template implementation is present.
+1.  All tests for custom functionality should be written without dependence on a given installation profile. Example: a Behat test for a custom text format filter should not save a node of a content type that is defined by the installation profile, but rather should save a "basic page" or "article."
+1.  All tests for custom functionality should be written without dependence on other custom functionality. Example: a Behat test for the Qualtrics text format filter should not assume the presence of a Responsive Tables text format filter.
 
 ## Theme
 
@@ -90,12 +90,12 @@
 > This section is intended to be a concise, high-level distillation of the above. It could be presented to stakeholders as a smoke-test for buy-in.
 
 1.  The distribution shall be composed using Composer and distributed as a built application with a `web` subdirectory docroot.
-2.  Updates to the distribution shall be applied by downloading the updated codebase and running database updates.
-3.  The individual developer/site shall be responsible for using Configuration Management in a manner s/he sees fit.
-4.  Reusable content shall be defined as Drupal blocks.
-5.  Page-specific content shall be defined as Drupal fields; complex fields shall be defined as Paragraphs types.
-6.  A layout tool shall be included which will allow content builders to choose between multiple page layouts and assign both reusable content and page-specific content on a per-page basis.
-7.  A branded theme shall be provided that may be sub-themed.
-8.  This branded theme shall follow principles of atomic design, and shall be constructed from an application-agnostic styleguide.
-9.  Addition, configuration, and management of contributed modules shall be the responsibility of the individual developer, except for contributed modules that are dependencies to the distribution's custom functionality.
-10.  Issues, feature requests, and in-progress changes shall be directly accessible by individual developers via Enterprise Github.
+1.  Updates to the distribution shall be applied by downloading the updated codebase and running database updates.
+1.  The individual developer/site shall be responsible for using Configuration Management in a manner s/he sees fit.
+1.  Reusable content shall be defined as Drupal blocks.
+1.  Page-specific content shall be defined as Drupal fields; complex fields shall be defined as Paragraphs types.
+1.  A layout tool shall be included which will allow content builders to choose between multiple page layouts and assign both reusable content and page-specific content on a per-page basis.
+1.  A branded theme shall be provided that may be sub-themed.
+1.  This branded theme shall follow principles of atomic design, and shall be constructed from an application-agnostic styleguide.
+1.  Addition, configuration, and management of contributed modules shall be the responsibility of the individual developer, except for contributed modules that are dependencies to the distribution's custom functionality.
+1.  Issues, feature requests, and in-progress changes shall be directly accessible by individual developers via Enterprise Github.
