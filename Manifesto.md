@@ -37,9 +37,9 @@
 ## Configuration Management
 
 1.  No configuration should ever be written to the `sites/default/config` directory.
-2.  All configuration relating to custom projects (modules/themes) must be defined in the modules' own `config/install` directory, and those modules should include a `features.yml` file that registers the configuration in Features.
+1.  All configuration relating to custom projects (modules/themes) must be defined in the modules' own `config/install` directory, and those modules should include a `features.yml` file that registers the configuration in Features.
     1.  Updates to configuration provided by custom projects should be deployed by adding a database update hook that does a `features-revert` on specific features. Update hooks should never use `features-revert-all` to avoid reverting features that individual developers have added to their own code.
-3.  Configuration relating to general site defaults (site information) must be done in the installation profile via a method such as described here [https://drupal.stackexchange.com/questions/238189/setting-site-name-in-installation-profile](https://drupal.stackexchange.com/questions/238189/setting-site-name-in-installation-profile)
+1.  Configuration relating to general site defaults (site information) must be done in the installation profile via a method such as described here [https://drupal.stackexchange.com/questions/238189/setting-site-name-in-installation-profile](https://drupal.stackexchange.com/questions/238189/setting-site-name-in-installation-profile)
 
 **Reasoning:**
 
