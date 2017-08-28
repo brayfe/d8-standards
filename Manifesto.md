@@ -1,9 +1,11 @@
 > The following page provides a highly opinionated prescription for building a Drupal 8 distribution. It is designed to be a straw man to be disputed, contradicted, ridiculed, and subsequently revised – in effect, a _[reculer pour mieux sauter](http://www.bartleby.com/81/14132.html)_ – which will eventually grow into a blueprint for an actual distribution design document.
 
+> The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt).
+
 ## Composer
 
-1.  The distribution repository should not include any built artifacts of Drupal core, contributed projects, or PHP libraries.
-2.  The distribution repository should contain a `composer.json` file in the root  of the repository that will compose explicitly identified versions of:
+1.  The distribution repository must not include any built artifacts of Drupal core, contributed projects, or PHP libraries.
+2.  The distribution repository must contain a `composer.json` file in the root  of the repository that will compose explicitly identified versions of:
     1.  Drupal Core, specifically Pantheon's "[drops-8](https://github.com/pantheon-systems/drops-8)" distribution for support of the Pantheon-based UT QuickSites and CMS Hosting Platform services
     1.  All contributed projects
         1.  All contrib patches should be managed in a `patches` subdirectory of the repository root and applied via the "scripts" method during `composer install`
@@ -23,8 +25,8 @@
 
 5.  The Drupal docroot must be located in a `web` subdirectory of the repository.
 6.  A customized `settings.php` file should be committed directly to the repository to overwrite the default `settings.php` provided as part of Drupal Core.
-7.  The distribution must be distributable to developers as-is (for a Composer-based workflow). Developers will not be prevented from using Composer for adding their own packages if desired; they would then need to manually maintain their own version of the repository root's `composer.json` file
-8. Non-functional example files will be provided for `.gitignore`, `circle.yml`, `pantheon.yml`, and `composer.json` as part of the distribution.
+7.  The distribution must be distributable to developers as-is (for a Composer-based workflow). Developers must not be prevented from using Composer for adding their own packages if desired; they would then need to manually maintain their own version of the repository root's `composer.json` file
+8. Non-functional example files may be provided for `.gitignore`, `circle.yml`, `pantheon.yml`, and `composer.json` as part of the distribution.
 
 **Reasoning:**
 
@@ -36,9 +38,9 @@
 
 ## Configuration Management
 
-1.  No configuration should ever be written to the `sites/default/config` directory.
+1.  Configuration must not ever be written to the `sites/default/config` directory.
 1.  All configuration relating to custom projects (modules/themes) must be defined in the modules' own `config/install` directory, and those modules should include a `features.yml` file that registers the configuration in Features.
-    1.  Updates to configuration provided by custom projects should be deployed by adding a database update hook that does a `features-revert` on specific features. Update hooks should never use `features-revert-all` to avoid reverting features that individual developers have added to their own code.
+    1.  Updates to configuration provided by custom projects should be deployed by adding a database update hook that does a `features-revert` on specific features. Update hooks must not ever use `features-revert-all`, to avoid reverting features that individual developers have added to their own code.
 1.  Configuration relating to general site defaults (site information) must be done in the installation profile via a method such as described here [https://drupal.stackexchange.com/questions/238189/setting-site-name-in-installation-profile](https://drupal.stackexchange.com/questions/238189/setting-site-name-in-installation-profile)
 
 **Reasoning:**
@@ -71,17 +73,17 @@
 
 ## Custom Functionality
 
-1.  All custom functionality provided in the distribution must NOT rely on a custom theme for any of its baseline rendering. In other words, all custom functionality should be minimally usable with any Drupal theme.
-1.  All tests for custom functionality should be written without dependence on a given theme. Example: a Behat test for a Contact Info block should not check that the block header text is a color defined by a given theme; it should check that the html structure defined by the component's template implementation is present.
-1.  All tests for custom functionality should be written without dependence on a given installation profile. Example: a Behat test for a custom text format filter should not save a node of a content type that is defined by the installation profile, but rather should save a "basic page" or "article."
-1.  All tests for custom functionality should be written without dependence on other custom functionality. Example: a Behat test for the Qualtrics text format filter should not assume the presence of a Responsive Tables text format filter.
+1.  All custom functionality provided in the distribution must NOT rely on a custom theme for any of its baseline rendering. In other words, all custom functionality must be minimally usable with any Drupal theme.
+1.  All tests for custom functionality must be written without dependence on a given theme. Example: a Behat test for a Contact Info block should not check that the block header text is a color defined by a given theme; it should check that the html structure defined by the component's template implementation is present.
+1.  All tests for custom functionality must be written without dependence on a given installation profile. Example: a Behat test for a custom text format filter should not save a node of a content type that is defined by the installation profile, but rather should save a "basic page" or "article."
+1.  All tests for custom functionality must be written without dependence on other custom functionality. Example: a Behat test for the Qualtrics text format filter should not assume the presence of a Responsive Tables text format filter.
 
 ## Theme
 
-1.  The distribution should provide a custom theme which can be sub-themed.
-1.  The custom theme will be dependent on the Bootstrap grid system.
+1.  The distribution must provide a custom theme which can be sub-themed.
+1.  The custom theme must be dependent on the Bootstrap grid system.
 1.  The custom theme should follow atomic design principles.
-1.  The distribution repository should not include compiled CSS. This should be performed as a part of the `composer install` process.
+1.  The distribution repository must not include compiled CSS. This should be performed as a part of the `composer install` process.
 1.  All tests for the theme should be done using visual regression comparison.
 
 ## The Ten Commandments of a Drupal 8 Distribution
