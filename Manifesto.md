@@ -4,7 +4,7 @@
 
 1.  The distribution repository should not include any built artifacts of Drupal core, contributed projects, or PHP libraries.
 2.  The distribution repository should contain a `composer.json` file in the root  of the repository that will compose explicitly identified versions of:
-    1.  Drupal Core
+    1.  Drupal Core, specifically Pantheon's "[drops-8](https://github.com/pantheon-systems/drops-8)" distribution for support of the Pantheon-based UT QuickSites and CMS Hosting Platform services
     2.  All contributed projects
         1.  All contrib patches should be managed in a `patches` subdirectory of the repository root and applied via the "scripts" method during `composer install`
     3.  All PHP libraries
