@@ -8,6 +8,7 @@
     2.  All contributed projects
         1.  All contrib patches should be managed in a `patches` subdirectory of the repository root and applied via the "scripts" method during `composer install`
     3.  All PHP libraries
+    4. Custom standalone projects, as defined below
 3. The "Distribution Kernel" -- meaning custom projects intrinsic to the functionality provided by the distribution -- must be directly included in the repository (e.g., `web/profiles/<install-profile-name>/modules`), rather than via the `composer.json`. Examples include the installation profile, node content types, Paragraphs types used by those node content types, user roles, and text format settings.
 4. "Custom standalone" projects not intrinsic to the functionality provided by the distribution must be included via VCS. Examples include custom text format filters, layout editing tools, self-contained display elements (e.g., Announcements), Drupal overrides, analytics solutions, and 404 handling.
 
