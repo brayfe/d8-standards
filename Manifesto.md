@@ -24,6 +24,7 @@
 5.  The Drupal docroot must be located in a `web` subdirectory of the repository.
 6.  A customized `settings.php` file should be committed directly to the repository to overwrite the default `settings.php` provided as part of Drupal Core.
 7.  The distribution must be distributable to developers as-is (for a Composer-based workflow). Developers will not be prevented from using Composer for adding their own packages if desired; they would then need to manually maintain their own version of the repository root's `composer.json` file
+8. Non-functional example files will be provided for `.gitignore`, `circle.yml`, `pantheon.yml`, and `composer.json` as part of the distribution.
 
 **Reasoning:**
 
