@@ -54,7 +54,6 @@
 
 **Reasoning:**
 
-*   The `field_layout` approach to content placement is (a) in Core, (b) adopted by Panels and Display Suite and (c) avoids the pitfalls of UTDK 7.x's dependence on manipulating regions at the page level.
 *   The Paragraphs contributed modules is emerging as the _sine qua non_ for complex field combinations that work in conjunction with each other.
 
 ## Layout & Content Placement
@@ -65,6 +64,10 @@
 4.  The layouts which such tools generate must be revisionable, just as the content they contain is revisionable.
 5.  Such tools must be compatible with moderated workflow.
 6.  Such tools must depend on core or other modules to supply layouts, and must provide a UI to switch between these externally-supplied layouts.
+
+**Reasoning:**
+
+*   The `field_layout` approach to content placement is (a) in Core, (b) adopted by Panels and Display Suite and (c) avoids the pitfalls of UTDK 7.x's dependence on manipulating regions at the page level.
 
 ## Custom Functionality
 
