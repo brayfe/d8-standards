@@ -79,10 +79,11 @@
 ## Theme
 
 1.  The distribution should provide a custom theme which can be sub-themed.
-2.  The custom theme should follow atomic design principles.
-3.  The custom theme should be based on an application-agnostic, canonical styleguide which generates the application-specific theme implementation.
-4.  The distribution repository should not include compiled CSS. This should be performed as a part of the `composer install` process.
-5.  All tests for the theme should be done using visual regression comparison.
+1.  The custom theme will be dependent on the Bootstrap grid system.
+1.  The custom theme should follow atomic design principles.
+1.  The custom theme should be based on an application-agnostic, canonical styleguide which generates the application-specific theme implementation.
+1.  The distribution repository should not include compiled CSS. This should be performed as a part of the `composer install` process.
+1.  All tests for the theme should be done using visual regression comparison.
 
 ## The Ten Commandments of a Drupal 8 Distribution
 
