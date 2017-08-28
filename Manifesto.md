@@ -88,7 +88,7 @@
 
 > This section is intended to be a concise, high-level distillation of the above. It could be presented to stakeholders as a smoke-test for buy-in.
 
-1.  The distribution shall be composed using Composer and distributed as a built application with a `web` subdirectory docroot.
+1.  The distribution shall be composed using Composer and will assume the use of a `web` subdirectory docroot.
 1.  Updates to the distribution shall be applied by downloading the updated codebase and running database updates.
 1.  The individual developer/site shall be responsible for using Configuration Management in a manner s/he sees fit.
 1.  Reusable content shall be defined as Drupal blocks.
