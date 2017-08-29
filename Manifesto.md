@@ -8,7 +8,7 @@
 2.  The distribution repository must contain a `composer.json` file in the root  of the repository that will compose explicitly identified versions of:
     1.  Drupal Core, specifically Pantheon's "[drops-8](https://github.com/pantheon-systems/drops-8)" distribution for support of the Pantheon-based UT QuickSites and CMS Hosting Platform services
     1.  All contributed projects
-        1.  All contrib patches should be managed in a `patches` subdirectory of the repository root and applied via the "scripts" method during `composer install`
+        1.  All contrib patches must be managed in a `patches` subdirectory of the repository root and applied via the "scripts" method during `composer install`
     1.  All PHP libraries
     1. Custom standalone projects, as defined below
 3. The "Distribution Kernel" -- meaning custom projects intrinsic to the functionality provided by the distribution -- must be directly included in the repository (e.g., `web/profiles/<install-profile-name>/modules`), rather than via the `composer.json`. Examples include the installation profile, "foundational" node content types defined by the distribution maintainers, Paragraphs types used by those node content types, user roles, and text format settings.
