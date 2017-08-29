@@ -12,7 +12,14 @@
     1.  All PHP libraries
     1. Custom standalone projects, as defined below
 3. The "Distribution Kernel" -- meaning custom projects intrinsic to the functionality provided by the distribution -- must be directly included in the repository (e.g., `web/profiles/<install-profile-name>/modules`), rather than via the `composer.json`. Examples include the installation profile, "foundational" node content types defined by the distribution maintainers, Paragraphs types used by those node content types, user roles, and text format settings.
-4. "Custom standalone" projects not intrinsic to the functionality provided by the distribution must be included via VCS. Examples include custom text format filters, layout editing tools, self-contained display elements (e.g., Announcements), Drupal overrides, analytics solutions, and 404 handling.
+4. "Custom standalone" projects not intrinsic to the functionality provided by the distribution must be included via VCS. Examples include:
+    1. Custom theme
+    1. Custom text format filters
+    1. Layout editing tools
+    1. Self-contained display elements (e.g., Announcements)
+    1. Drupal overrides
+    1. Analytics solutions
+    1. 404 handling.
 
 ### Visualisation of 1 - 4
 | Component | Use Composer | Don't use Composer |
