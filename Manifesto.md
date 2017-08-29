@@ -11,7 +11,7 @@
         1.  All contrib patches must be managed in a `patches` subdirectory of the repository root and applied via the "scripts" method during `composer install`
     1.  All PHP libraries
     1. Custom standalone projects, as defined below
-3. The "Distribution Kernel" -- meaning custom projects intrinsic to the functionality provided by the distribution -- must be directly included in the repository (e.g., `web/profiles/<install-profile-name>/modules`), rather than via the `composer.json`. Examples include the installation profile, "foundational" node content types defined by the distribution maintainers, Paragraphs types used by those node content types, user roles, and text format settings.
+3. The "Distribution Kernel" -- meaning custom projects intrinsic to the functionality provided by the distribution -- must be directly included in the repository (e.g., `web/profiles/<install-profile-name>/modules`), rather than via the `composer.json`. Examples include the installation profile, "foundational" node content types defined by the distribution maintainers, Paragraph Types used by those node content types, user roles, and text format settings.
 4. "Custom standalone" projects not intrinsic to the functionality provided by the distribution must be included via VCS. Examples include:
     1. Custom theme
     1. Custom text format filters
@@ -59,11 +59,11 @@
 1.  Content elements that will only always ever have a discrete number of instances on the site must be defined as plugin blocks. Examples of this include the sitewide social links, footer links, and sitewide announcement.
 1.  Content elements that will never be displayed as a standalone page (read: it doesn't have a direct URL) must be defined as custom block types. Examples of this include Contact Info, Social Links, UT Newsreels, and Twitter Widgets.
 1.  Content elements that are primarily intended for display on a single page must be defined as fields. Examples include Hero Photo, Flex Content Area, and WYSIWYG fields.
-1.  Compound fields must be defined as [Paragraph](https://www.drupal.org/project/paragraphs) types, and added to content types as Paragraph entity references.
+1.  Compound fields must be defined as [Paragraph](https://www.drupal.org/project/paragraphs) Types, and added to content types as Paragraph entity references.
 
 **Reasoning:**
 
-*   The Paragraphs contributed modules is emerging as the _sine qua non_ for complex field combinations that work in conjunction with each other.
+*   The Paragraphs contributed module is emerging as the _sine qua non_ for complex field combinations that work in conjunction with each other.
 
 ## Layout & Content Placement
 
@@ -101,7 +101,7 @@
 1.  Updates to the distribution shall be applied by obtaining the updated codebase, running `composer update`, and running database updates.
 1.  The distribution shall not interact with Drupal's Configuration Management system. The individual developer/site shall be responsible for using Configuration Management in a manner s/he sees fit.
 1.  Reusable content shall be defined as Drupal blocks.
-1.  Page-specific content shall be defined as Drupal fields; complex fields shall be defined as Paragraphs types.
+1.  Page-specific content shall be defined as Drupal fields; complex fields shall be defined as Paragraph Types.
 1.  A layout tool shall be included which will allow content builders to choose between multiple page layouts and assign both reusable content and page-specific content on a per-page basis.
 1.  A branded theme shall be provided that may be sub-themed, and can be used independently of the distribution.
 1.  This branded theme shall follow principles of atomic design, and shall use the Bootstrap grid system.
